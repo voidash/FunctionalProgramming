@@ -3,6 +3,7 @@
 ## guide following : [https://learnyousomeerlang.com/starting-out-for-real](learn you some erlang)
 
 
+* comments in erlang starts with % character
 * erlang uses =:= instead of == and =/= instead of !=
 * less than sign =< instead <= 
 * atom is a literal in erlang. a constant .... true and false are atoms instead of being actual data type. 
@@ -19,6 +20,7 @@
 On this second example tuple is being unpacked. 333 will be lost because _ is like /dev/null	
 
 * for tuple desctructuring to work :  the elements on RHS must be equal to RHS. 
+* tokens in erlang : ~n \n , ~s \s (for strings) --> for io:format()
 * Lists in erlang
 	* Can contain any data type. 
 	* if list contains integers that are ascii equivalent integers only. it will be shown as list
@@ -95,9 +97,71 @@ On this second example tuple is being unpacked. 333 will be lost because _ is li
 
 ## ---- Modules ----
 
+Modules are the classes of erlangs.
+
+modules:function(Args)
+
+* When saving modules to file. The filename must match the module name.
+
+* at the top of the file there should be module definition.
+	
+	-module(ModuleName).
+	The ModuleName is the atom that will be used to call the function defined inside it.
+	
+	-export([function/arity,function2/arity,function3/arity...]).
+arity is integer that defines the number of arguments that the function can accept.
+The functions that are present inside the list will only be accessible.
+
+	compile flag : -export-all will help to export all the modules. 
+	
+
+
+example of module in action
+
+				
+				-module(useless).
+				-author("Ashish Thapa").
+				-define(sub(X,Y),X-Y).
+				-export([add/2,hello/0,greet_and_add_two/1,sub/2]).
+
+				add(A,B) -> A + B.
+
+				hello() -> io:format("This is Hello " ).
+
+				greet_and_add_two(X) -> hello() , add(X,2).
+
+
+## if else in erlang vs other langauges
+		
+				function(Args)
+				if X then
+					Expression
+				else if Y then
+					Expression
+				else
+					Expression
 
 	
-		
+				function(X) ->
+					Expression;
+				function(Y) ->
+					Expression;
+				function(_) ->
+					Expression.
+
+# guards in erlang
+	
+* important part of functions..
+* makes pattern matching more expressive
+* pre bound check for the arguments being passed much more like if else
+
+			is_valid_driver(X) when X >= 16 , x =< 100 -> true;
+			is_valid_driver(_) -> false.
+
+* the (,) comma acts like  ```and``` and (;) semicolon acts like ```or ```
+	
+
+
 
 
 
