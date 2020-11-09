@@ -10,8 +10,8 @@
     * they are not garbage collected. which means no usage for dynamic purpose.create a loop with atoms and it will run out of memory.
     * Atoms are constants much like in enums. but much better --> when debugging atoms will not show itself as integers like in C++.
 * Defining a variable means it has to start with a Capital letter or _ or @ else it will be considered a atom.
-* To define a atome that starts out with capital letter or _ or @... you can use Quotation marks ''
-* tuples are present in erlang. much like javascript tuples can be destructured... or upacked
+* To define a atom that starts out with capital letter or _ or @... you can use Quotation marks ''
+* tuples are present in erlang. much like python tuples can be destructured... or upacked
 	
 			{X,Y}={23,100}.
 			{C,_}={123,333}.
@@ -25,7 +25,10 @@ On this second example tuple is being unpacked. 333 will be lost because _ is li
 		
 				[67]. 
 				c
-	
+	* get nth element in the list.
+		lists:nth(1,List).
+		They don't start from 0.	
+
 	* list append operation ++
 	
 		[1,2,3] ++ [4,5] ++ [6]
@@ -40,6 +43,10 @@ On this second example tuple is being unpacked. 333 will be lost because _ is li
 	* cons operator | 
 		
 		[Head|Tail]
+		
+		A = lists:seq(1,20).
+		[B | F ] = A.
+		
 
 		Like in haskell a list can be comprised of just one operator(In haskell :)
 		1:2:3:[]
@@ -49,6 +56,7 @@ On this second example tuple is being unpacked. 333 will be lost because _ is li
 
 		[1,2,3,4] --> [1 | [2 | [3 | [4 | []]]]]
 		a list inside a list. 
+
 	* List comprehensions
 		
 		Syntax : [identifier | identifier <- [list], condition...]
@@ -57,8 +65,18 @@ On this second example tuple is being unpacked. 333 will be lost because _ is li
 		[X || X <- [1,2,3,4,5,6,7,8],x rem 2 =:= 0]
 		output [2,4,6,8]
 
+		Example to generate Right angles triangles with hypotenuse less than 100.
+
+		A = lists:seq(1,100).
+		
+		[ [H,P,Q] || H <- A , P <- A, Q <- A , math:pow(H,2) =:= math:pow(P,2) + math:pow(Q,2) ] 
+		
+		[ [H,P,Q] || {H,P,Q} <- A, math:pow(H,2) =:= math:pow(P,2) + math:pow(Q,2) ] 
+
 * bit manipulation in erlang. 
-	
+	* convert binary to lists
+			erlang:binary_to_list()	
+			
 	* bits are placed inside double &lt(<<) and double &gt(>>)
 
 			Pixel = << 1,2,3,4>>
@@ -73,6 +91,10 @@ On this second example tuple is being unpacked. 333 will be lost because _ is li
 		
 		bsl -> shift left
 		bsr -> shift right
+
+
+## ---- Modules ----
+
 
 	
 		
