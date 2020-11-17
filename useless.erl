@@ -1,11 +1,17 @@
 -module(useless).
--author("Ashish Thapa").
--define(sub(X,Y),X-Y).
--export([add/2,hello/0,greet_and_add_two/1,sub/2]).
+-export([add/2,hello/0,check/2]).
 
-add(A,B) -> A + B.
+add(X,Y) -> 
+X+Y.
 
-hello() -> io:format("This is Hello " ).
+hello() ->
+ io:format("hello world~n").
 
-greet_and_add_two(X) -> hello() , add(X,2).
+check(male,X) ->
+	io:format("hello , mr ~s! " , [X]);
+check(female,X) ->
+	io:format("hello, mrs ~s! ", [X]);
+check(_,X) ->
+	io:format("hello, ~s~",[X]).	
+
 
