@@ -160,9 +160,16 @@ example of module in action
 
 * the (,) comma acts like  ```and``` and (;) semicolon acts like ```or ```
 	
+	## Difference between comma```,``` and  ```andalso```
 
+		```andalso``` catches error as it happens and won't let the next expression to be evaluated. ```,``` doesn't care about error and even if error takes place it continues to evaluate.  
+		
+		same case for ```;``` and ```orelse```
 
+		they are not drop in replacements. 
 
+	
+* remember conda { comma and and} mnemonic device
 
 
 
