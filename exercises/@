@@ -1,0 +1,11 @@
+-module(CToF).
+-author(Ashish).
+-export([ctf/1,ftc/1]).
+
+ctf(Celsius) ->
+    io:format("~f",Celsius*180/100+32).
+
+ftc(Farenheight) ->
+    io:format("~f",(Farenheight-32)/180*100).
+
+

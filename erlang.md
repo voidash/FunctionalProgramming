@@ -172,6 +172,12 @@ example of module in action
 * remember conda { comma and and} mnemonic device
 
 
+### Note : When to use comma, when to use semicolon and dot(.): 
+
+* End of conditional function use semicolon
+* End of single expression inside a function, use comma.
+* End of whole function defination use dot.
+
 
 
 
